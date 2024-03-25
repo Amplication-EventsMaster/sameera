@@ -26,6 +26,7 @@ model Customer {
   firstName String?
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   lastName  String?
+  phone     String?
   updatedAt DateTime @updatedAt
 }
 
