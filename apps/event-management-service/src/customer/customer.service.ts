@@ -6,5 +6,6 @@ import { CustomerServiceBase } from "./base/customer.service.base";
 export class CustomerService extends CustomerServiceBase {
   constructor(protected readonly prisma: PrismaService) {
     super(prisma);
+    console.log("hello")
   }
 }
