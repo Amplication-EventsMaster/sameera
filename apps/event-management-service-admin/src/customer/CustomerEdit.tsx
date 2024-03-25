@@ -7,6 +7,7 @@ import {
   TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
+  SelectInput,
 } from "react-admin";
 
 import { EventTitle } from "../event/EventTitle";
@@ -27,6 +28,18 @@ export const CustomerEdit = (props: EditProps): React.ReactElement => {
         <TextInput label="First Name" source="firstName" />
         <TextInput label="Last Name" source="lastName" />
         <TextInput label="phone" source="phone" />
+        <SelectInput
+          source="status"
+          label="status"
+          choices={[
+            { label: "muly", value: "Muly" },
+            { label: "yuval", value: "Yuval" },
+            { label: "Vika", value: "Vika" },
+          ]}
+          optionText="label"
+          allowEmpty
+          optionValue="value"
+        />
       </SimpleForm>
     </Edit>
   );

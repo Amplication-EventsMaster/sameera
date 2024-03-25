@@ -11,9 +11,16 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsOptional, ValidateNested } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  IsOptional,
+  ValidateNested,
+  IsEnum,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { Event } from "../../event/base/Event";
+import { EnumCustomerStatus } from "./EnumCustomerStatus";
 
 @ObjectType()
 class Customer {
@@ -85,6 +92,17 @@ class Customer {
     nullable: true,
   })
   phone!: string | null;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumCustomerStatus,
+  })
+  @IsEnum(EnumCustomerStatus)
+  @IsOptional()
+  @Field(() => EnumCustomerStatus, {
+    nullable: true,
+  })
+  status?: "Muly" | "Yuval" | "Vika" | null;
 
   @ApiProperty({
     required: true,
