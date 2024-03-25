@@ -20,14 +20,15 @@ model User {
 }
 
 model Customer {
-  createdAt DateTime @default(now())
+  createdAt DateTime            @default(now())
   email     String?
   events    Event[]
   firstName String?
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String              @id @default(auto()) @map("_id") @db.ObjectId
   lastName  String?
   phone     String?
-  updatedAt DateTime @updatedAt
+  status    EnumCustomerStatus?
+  updatedAt DateTime            @updatedAt
 }
 
 model Event {
@@ -37,4 +38,10 @@ model Event {
   date       DateTime?
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
   updatedAt  DateTime  @updatedAt
+}
+
+enum EnumCustomerStatus {
+  Muly
+  Yuval
+  Vika
 }

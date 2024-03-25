@@ -6,4 +6,5 @@ export type CustomerCreateInput = {
   firstName?: string | null;
   lastName?: string | null;
   phone?: string | null;
+  status?: "Muly" | "Yuval" | "Vika" | null;
 };
